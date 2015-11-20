@@ -1,0 +1,28 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.p7s1.view.Master">
+	<Page id="masterPage" title="{i18n&gt;masterTitle}">
+		<subHeader id="masterSubHeader">
+			<Bar id="searchBar">
+				<contentMiddle>
+					<SearchField id="searchField" placeholder="{i18n&gt;masterSearchPlaceholder}" search="onSearch" showRefreshButton="{device&gt;/isNoTouch}" tooltip="{i18n&gt;masterSearchTooltip}" width="100%"/>
+				</contentMiddle>
+			</Bar>
+		</subHeader>
+		<content>
+			<List growing="true" growingScrollToLoad="true" id="list" items="{/Vertretungen}" mode="{device&gt;/listMode}" noDataText="{i18n&gt;masterListNoDataText}" select="onSelect">
+				<items id="masterList">
+					<ObjectListItem counter="0" id="mainListItem" markFavorite="false" markFlagged="false" number="{path: 'Endda', formatter: 'com.p7s1.util.Formatter.formatDate'}" numberUnit="ab: {path: 'Begda', formatter: 'com.p7s1.util.Formatter.formatDate'}" press="onSelect" showMarkers="false" title="{RepName}" type="{device&gt;/listItemType}" activeIcon="">
+						<core:ExtensionPoint name="extListItemInfo"/>
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+		<footer id="masterFooter">
+			<OverflowToolbar  id="masterToolbar">
+				<content>
+					<footerbar:SettingsButton icon="sap-icon://action-settings" id="settingsButton" tooltip="Help"/>
+					<Button text="" id="__button4" icon="sap-icon://add" press="onAddVertretung" />
+				</content>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>
