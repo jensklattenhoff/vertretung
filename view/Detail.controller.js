@@ -39,6 +39,9 @@ sap.ui.core.mvc.Controller.extend("com.p7s1.view.Detail", {
 			}
 
 			var sEntityPath = "/" + oParameters.arguments.entity;
+			// TODO
+			var sUserPath = "/" + oParameters.arguments.entity + "/ToUserAddress";
+			
 			this.bindView(sEntityPath);
 
 			var oIconTabBar = oView.byId("idIconTabBar");
